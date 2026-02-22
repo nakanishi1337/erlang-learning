@@ -1,0 +1,14 @@
+{
+    "name": "erlang-dev",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "erlang-ls.erlang-ls"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}

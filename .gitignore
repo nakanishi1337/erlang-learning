@@ -1,0 +1,26 @@
+# Erlang/OTP
+*.beam
+*.plt
+ebin/
+deps/
+_build/
+.rebar3/
+.eqc-info
+erl_crash.dump
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Build
+rel/
+_rel/
+
+# elvis
+elvis.config
