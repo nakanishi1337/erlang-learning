@@ -7,7 +7,10 @@
         "vscode": {
             "extensions": [
                 "erlang-ls.erlang-ls"
-            ]
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
         }
     },
     "remoteUser": "vscode"
