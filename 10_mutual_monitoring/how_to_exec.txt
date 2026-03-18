@@ -1,0 +1,31 @@
+実行方法:
+
+```
+cd /workspaces/erlang-learning/11_mutual_monitoring
+erlc doctor1.erl
+erlc doctor2.erl
+erl -noshell -pa . -eval '
+  Doctor1 = spawn(fun doctor1:loop/0),
+  Doctor2 = spawn(fun doctor2:loop/0),
+
+  Doctor1 ! {new, Doctor2, self()},
+  receive ok -> ok end,
+
+  Doctor2 ! {new, Doctor1, self()},
+  receive ok -> ok end,
+
+  exit(whereis(doctor1), kill),
+  timer:sleep(500),
+
+  exit(whereis(doctor2), kill),
+  timer:sleep(500),
+
+  exit(whereis(doctor1), kill),
+  timer:sleep(500),
+
+  exit(whereis(doctor2), kill),
+  timer:sleep(500),
+  
+  halt().
+'
+```
