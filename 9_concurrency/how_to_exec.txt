@@ -1,0 +1,14 @@
+実行方法:
+
+```
+cd /workspaces/erlang-learning/9_concurrency
+erlc translate_service.erl
+erlc doctor.erl
+erl -noshell -pa . -eval '
+  Doctor = spawn(fun doctor:loop/0),
+  Doctor ! {new, self()},
+  receive ok -> ok end,
+  io:format("~p~n", [translate_service:translate(translator, "casa")]),
+  halt().
+'
+```
